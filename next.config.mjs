@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    reactStrictMode: true,
     images: {
         remotePatterns: [
             {
@@ -8,7 +9,11 @@ const nextConfig = {
                 port: ''
             }
         ]
-    }
+    },
+    webpack: (config, { isServer }) => {
+        // Custom configurations, make sure not to interfere with HMR
+        return config;
+    },
 };
 
 export default nextConfig;
