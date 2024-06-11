@@ -17,7 +17,7 @@ import { formUrlQuery } from "@/lib/utils";
 
 import { Button } from "../ui/button";
 
-// import { Search } from "./Search";
+import { Search } from "./Search";
 
 export const Collection = ({
   hasSearch = false,
@@ -50,13 +50,13 @@ export const Collection = ({
     <>
       <div className="collection-heading">
         <h2 className="h2-bold text-dark-600">Recent Edits</h2>
-        {/* {hasSearch && <Search />} */}
+        {hasSearch && <Search />}
       </div>
 
       {images.length > 0 ? (
         <ul className="collection-list">
           {images.map((image) => (
-            <Card image={image} key={image._id} />
+            <Card image={image} key={image._id as string} />
           ))}
         </ul>
       ) : (
